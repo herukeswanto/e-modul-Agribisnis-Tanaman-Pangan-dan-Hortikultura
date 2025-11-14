@@ -1,149 +1,258 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E-Modul Pengendalian Hama Tanaman Hortikultura</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Modul interaktif untuk mata pelajaran Pengendalian Hama Tanaman Hortikultura kelas XI ATPH. Dilengkapi materi, aktivitas, dan evaluasi.">
+    <meta name="keywords" content="e-modul, hama tanaman, hortikultura, ATPH, SMKN 1 Muaro Jambi">
+    <meta name="author" content="SMKN 1 Muaro Jambi">
+    <title>E-Modul Pengendalian Hama Tanaman Hortikultura</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
 
-<style>
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f5f5f5;
-    }
-
-    /* HEADER */
-    header {
-        background: #2E7D32;
-        color: white;
-        padding: 25px;
-        text-align: center;
-    }
-
-    /* NAVBAR */
-    nav {
-        background: #1B5E20;
-        color: white;
-        padding: 12px;
-        text-align: center;
-        font-weight: bold;
-    }
-
-    nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-    }
-
-    /* LAYOUT FLEX */
-    .wrapper {
-        display: flex;
-        min-height: calc(100vh - 160px); /* sisa ruang setelah header+navbar */
-    }
-
-    /* SIDEBAR */
-    aside {
-        width: 260px;
-        background: #E8F5E9;
-        padding: 20px;
-        border-right: 1px solid #ccc;
-        transition: left 0.3s ease;
-    }
-
-    aside ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    aside li {
-        margin: 12px 0;
-    }
-
-    aside a {
-        font-weight: bold;
-        text-decoration: none;
-        color: #1B5E20;
-    }
-
-    /* KONTEN */
-    main {
-        flex: 1;
-        padding: 30px;
-        background: white;
-        margin: 10px;
-        border-radius: 8px;
-    }
-
-    /* FOOTER */
-    footer {
-        background: #2E7D32;
-        color: white;
-        padding: 15px;
-        text-align: center;
-    }
-
-    /* ========= RESPONSIVE (HP) ========= */
-    #menuButton {
-        display: none;
-        background: #1B5E20;
-        color: white;
-        border: none;
-        padding: 12px;
-        font-size: 18px;
-        width: 100%;
-        cursor: pointer;
-    }
-
-    @media (max-width: 900px) {
-        .wrapper {
-            flex-direction: column;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        aside {
-            width: 100%;
-            position: absolute;
-            top: 180px;
-            left: -100%;
-            height: calc(100vh - 180px);
-            z-index: 999;
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
 
-        aside.show {
-            left: 0;
+        /* HEADER */
+        header {
+            background: #2E7D32;
+            color: white;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.3rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #1B5E20;
+            color: white;
+            padding: 0.8rem 1rem;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 12px;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        nav a:hover, nav a:focus {
+            background: rgba(255,255,255,0.2);
+            outline: none;
+        }
+
+        /* MENU BUTTON (MOBILE) */
         #menuButton {
-            display: block;
+            display: none;
+            background: #1B5E20;
+            color: white;
+            border: none;
+            padding: 0.8rem 1rem;
+            font-size: 1.2rem;
+            width: 100%;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 1000;
         }
 
-        main {
-            margin: 15px 10px;
+        #menuButton:focus {
+            outline: 2px solid #fff;
         }
-    }
-</style>
+
+        /* LAYOUT FLEX */
+        .wrapper {
+            display: flex;
+            min-height: calc(100vh - 180px); /* Header + Navbar + Footer approx */
+        }
+
+        /* SIDEBAR */
+        aside {
+            width: 260px;
+            background: #E8F5E9;
+            padding: 1.5rem 1rem;
+            border-right: 1px solid #d0d0d0;
+            overflow-y: auto;
+            transition: left 0.3s ease, transform 0.3s ease;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        aside li {
+            margin: 0.8rem 0;
+        }
+
+        aside a {
+            font-weight: 600;
+            text-decoration: none;
+            color: #1B5E20;
+            padding: 0.4rem 0.6rem;
+            display: block;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        aside a:hover, aside a:focus {
+            background: rgba(27, 94, 32, 0.1);
+            outline: none;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            flex: 1;
+            padding: 2rem;
+            background: white;
+            margin: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow-y: auto;
+        }
+
+        main h2 {
+            color: #2E7D32;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #E8F5E9;
+        }
+
+        main p {
+            margin-bottom: 1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #2E7D32;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 900px) {
+            .wrapper {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            aside {
+                width: 100%;
+                position: fixed;
+                top: 145px; /* Tinggi header + navbar + menu button */
+                left: -100%;
+                height: calc(100vh - 145px);
+                z-index: 999;
+                padding-top: 1rem;
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            }
+
+            aside.show {
+                left: 0;
+            }
+
+            #menuButton {
+                display: block;
+            }
+
+            main {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 0 8px;
+                padding: 0.3rem 0.6rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.3rem;
+            }
+
+            main {
+                padding: 1rem;
+            }
+
+            aside a {
+                font-size: 0.95rem;
+                padding: 0.5rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 3px solid #4CAF50;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
+<header role="banner">
     <h1>E-Modul Pengendalian Hama Tanaman Hortikultura</h1>
     <p>Kelas XI – ATPH</p>
 </header>
 
-<nav>
-    <a href="#home">Beranda</a>
-    <a href="#materi">Materi</a>
-    <a href="#aktivitas">Aktivitas</a>
-    <a href="#evaluasi">Evaluasi</a>
+<nav role="navigation" aria-label="Navigasi Utama">
+    <a href="#home" aria-label="Menuju Beranda">Beranda</a>
+    <a href="#materi" aria-label="Menuju Materi">Materi</a>
+    <a href="#aktivitas" aria-label="Menuju Aktivitas">Aktivitas</a>
+    <a href="#evaluasi" aria-label="Menuju Evaluasi">Evaluasi</a>
 </nav>
 
-<button id="menuButton">☰ Navigasi</button>
+<button id="menuButton" aria-expanded="false" aria-controls="sidebar" aria-label="Toggle Navigasi Sidebar">
+    ☰ Navigasi
+</button>
 
 <div class="wrapper">
 
     <!-- SIDEBAR -->
-    <aside id="sidebar">
+    <aside id="sidebar" role="complementary" aria-label="Daftar Isi">
+        <h2 style="font-size: 1.2rem; margin-bottom: 1rem; color: #1B5E20;">Daftar Isi</h2>
         <ul>
             <li><a href="#pendahuluan">Pendahuluan</a></li>
             <li><a href="#tujuan">Tujuan Pembelajaran</a></li>
@@ -158,24 +267,65 @@
         </ul>
     </aside>
 
-    <!-- KONTEN -->
-    <main>
-        <h2>Selamat Datang di E-Modul</h2>
-        <p>E-modul ini digunakan sebagai media pembelajaran pada mata pelajaran Pengendalian Hama Tanaman Hortikultura kelas XI ATPH.</p>
+    <!-- MAIN CONTENT -->
+    <main id="main-content" role="main">
+        <section id="home">
+            <h2>Selamat Datang di E-Modul</h2>
+            <p>E-modul ini digunakan sebagai media pembelajaran pada mata pelajaran <strong>Pengendalian Hama Tanaman Hortikultura</strong> kelas XI ATPH.</p>
+            <p>Gunakan navigasi di samping (atau tekan tombol "Navigasi" di HP) untuk menjelajahi seluruh isi modul.</p>
+        </section>
+
+        <!-- Contoh konten placeholder -->
+        <section id="pendahuluan" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #ccc;">
+            <h3>Pendahuluan</h3>
+            <p>Isi pendahuluan akan ditampilkan di sini...</p>
+        </section>
+
+        <section id="tujuan">
+            <h3>Tujuan Pembelajaran</h3>
+            <p>Setelah mempelajari modul ini, siswa diharapkan mampu...</p>
+        </section>
     </main>
+
 </div>
 
-<footer>
+<footer role="contentinfo">
     © 2025 • E-Modul Pengendalian Hama • SMKN 1 Muaro Jambi
 </footer>
 
 <script>
-    const btn = document.getElementById("menuButton");
-    const sidebar = document.getElementById("sidebar");
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
 
-    btn.onclick = function() {
-        sidebar.classList.toggle("show");
-    };
+        menuButton.addEventListener('click', function() {
+            sidebar.classList.toggle('show');
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+        });
+
+        // Tutup sidebar saat klik di luar (mobile only)
+        document.addEventListener('click', function(event) {
+            if (window.innerWidth <= 900 && 
+                !sidebar.contains(event.target) && 
+                event.target !== menuButton && 
+                sidebar.classList.contains('show')) {
+                sidebar.classList.remove('show');
+                menuButton.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Menutup sidebar saat link diklik (mobile)
+        const sidebarLinks = sidebar.querySelectorAll('a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 900) {
+                    sidebar.classList.remove('show');
+                    menuButton.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    });
 </script>
 
 </body>
