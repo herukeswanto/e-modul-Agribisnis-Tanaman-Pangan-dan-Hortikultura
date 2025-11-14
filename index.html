@@ -3,329 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="E-Modul interaktif untuk mata pelajaran Pengendalian Hama Tanaman Hortikultura kelas XI ATPH. Dilengkapi materi, aktivitas, dan evaluasi.">
-    <meta name="keywords" content="e-modul, hama tanaman, hortikultura, ATPH, SMKN 1 Muaro Jambi">
-    <meta name="author" content="SMKN 1 Muaro Jambi">
-    <title>E-Modul Pengendalian Hama Tanaman Hortikultura</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+    <title>E-Modul – Pengendalian Hama</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f6f7;
         }
 
         /* HEADER */
         header {
-            background: #2E7D32;
+            background: #2c7a7b;
             color: white;
-            padding: 1.5rem 1rem;
+            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        header h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.3rem;
+        /* MENU TOGGLE FOR MOBILE */
+        .mobile-menu-btn {
+            display: none;
+            background: #225e5f;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            cursor: pointer;
         }
-
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* NAVBAR */
         nav {
-            background: #1B5E20;
-            color: white;
-            padding: 0.8rem 1rem;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background: #edf2f7;
+            padding: 15px;
+            width: 250px;
+            min-height: 100vh;
         }
 
         nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 12px;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-
-        nav a:hover, nav a:focus {
-            background: rgba(255,255,255,0.2);
-            outline: none;
-        }
-
-        /* MENU BUTTON (MOBILE) */
-        #menuButton {
-            display: none;
-            background: #1B5E20;
-            color: white;
-            border: none;
-            padding: 0.8rem 1rem;
-            font-size: 1.2rem;
-            width: 100%;
-            cursor: pointer;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            position: relative;
-            z-index: 1000;
-        }
-
-        #menuButton:focus {
-            outline: 2px solid #fff;
-        }
-
-        /* LAYOUT FLEX */
-        .wrapper {
-            display: flex;
-            min-height: calc(100vh - 180px); /* Header + Navbar + Footer approx */
-        }
-
-        /* SIDEBAR */
-        aside {
-            width: 260px;
-            background: #E8F5E9;
-            padding: 1.5rem 1rem;
-            border-right: 1px solid #d0d0d0;
-            overflow-y: auto;
-            transition: left 0.3s ease, transform 0.3s ease;
-        }
-
-        aside ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        aside li {
-            margin: 0.8rem 0;
-        }
-
-        aside a {
-            font-weight: 600;
-            text-decoration: none;
-            color: #1B5E20;
-            padding: 0.4rem 0.6rem;
             display: block;
-            border-radius: 4px;
-            transition: background 0.2s;
+            padding: 10px 0;
+            color: #2c7a7b;
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        aside a:hover, aside a:focus {
-            background: rgba(27, 94, 32, 0.1);
-            outline: none;
+        nav a:hover {
+            color: #1d4e4f;
         }
 
-        /* MAIN CONTENT */
-        main {
+        .container {
+            display: flex;
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .content {
             flex: 1;
-            padding: 2rem;
             background: white;
-            margin: 1rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            overflow-y: auto;
+            padding: 20px;
+            border-radius: 8px;
         }
 
-        main h2 {
-            color: #2E7D32;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #E8F5E9;
-        }
-
-        main p {
-            margin-bottom: 1rem;
-        }
-
-        /* FOOTER */
         footer {
-            background: #2E7D32;
+            margin-top: 20px;
+            background: #2c7a7b;
             color: white;
-            padding: 1rem;
+            padding: 10px;
             text-align: center;
-            font-size: 0.9rem;
-            box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
         }
 
-        /* RESPONSIVE DESIGN */
-        @media (max-width: 900px) {
-            .wrapper {
-                flex-direction: column;
-                min-height: auto;
-            }
+        .placeholder {
+            background: #e2e8f0;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #4a5568;
+        }
 
-            aside {
-                width: 100%;
-                position: fixed;
-                top: 145px; /* Tinggi header + navbar + menu button */
-                left: -100%;
-                height: calc(100vh - 145px);
-                z-index: 999;
-                padding-top: 1rem;
-                box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            }
+        /* ----------------------------- */
+        /* RESPONSIVE (LAYAR HP)         */
+        /* ----------------------------- */
+        @media (max-width: 768px) {
 
-            aside.show {
-                left: 0;
-            }
-
-            #menuButton {
+            /* Menu Button Shows */
+            .mobile-menu-btn {
                 display: block;
             }
 
-            main {
-                margin: 1rem;
-                padding: 1.5rem;
+            /* Sidebar Hide by Default */
+            nav {
+                display: none;
+                width: 100%;
+                min-height: auto;
+                padding: 10px;
             }
 
-            header h1 {
-                font-size: 1.5rem;
+            /* When Mobile Menu Active */
+            nav.active {
+                display: block;
             }
 
-            nav a {
-                display: inline-block;
-                margin: 0 8px;
-                padding: 0.3rem 0.6rem;
-                font-size: 0.95rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.3rem;
+            /* Layout Becomes One Column */
+            .container {
+                flex-direction: column;
+                padding: 10px;
             }
 
-            main {
-                padding: 1rem;
+            .content {
+                padding: 15px;
             }
-
-            aside a {
-                font-size: 0.95rem;
-                padding: 0.5rem;
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Focus styles for accessibility */
-        a:focus, button:focus {
-            outline: 3px solid #4CAF50;
-            outline-offset: 2px;
         }
     </style>
-</head>
 
+</head>
 <body>
 
-<header role="banner">
-    <h1>E-Modul Pengendalian Hama Tanaman Hortikultura</h1>
-    <p>Kelas XI – ATPH</p>
+<header>
+    <h1>E-Modul</h1>
+    <h2>Pengendalian Hama Tanaman Hortikultura</h2>
+    <p>Program Keahlian: ATPH – SMK</p>
 </header>
 
-<nav role="navigation" aria-label="Navigasi Utama">
-    <a href="#home" aria-label="Menuju Beranda">Beranda</a>
-    <a href="#materi" aria-label="Menuju Materi">Materi</a>
-    <a href="#aktivitas" aria-label="Menuju Aktivitas">Aktivitas</a>
-    <a href="#evaluasi" aria-label="Menuju Evaluasi">Evaluasi</a>
-</nav>
-
-<button id="menuButton" aria-expanded="false" aria-controls="sidebar" aria-label="Toggle Navigasi Sidebar">
-    ☰ Navigasi
+<!-- BUTTON FOR MOBILE MENU -->
+<button class="mobile-menu-btn" onclick="toggleMenu()">
+    ☰ Menu E-Modul
 </button>
 
-<div class="wrapper">
+<div class="container">
 
-    <!-- SIDEBAR -->
-    <aside id="sidebar" role="complementary" aria-label="Daftar Isi">
-        <h2 style="font-size: 1.2rem; margin-bottom: 1rem; color: #1B5E20;">Daftar Isi</h2>
-        <ul>
-            <li><a href="#pendahuluan">Pendahuluan</a></li>
-            <li><a href="#tujuan">Tujuan Pembelajaran</a></li>
-            <li><a href="#peta">Peta Konsep</a></li>
-            <li><a href="#bab1">Bab 1: Pengertian Hama</a></li>
-            <li><a href="#bab2">Bab 2: Jenis-Jenis Hama</a></li>
-            <li><a href="#bab3">Bab 3: Identifikasi Hama</a></li>
-            <li><a href="#bab4">Bab 4: Pengendalian Hama</a></li>
-            <li><a href="#lkpd">LKPD</a></li>
-            <li><a href="#evaluasi">Evaluasi</a></li>
-            <li><a href="#referensi">Referensi</a></li>
-        </ul>
-    </aside>
+    <!-- NAVIGASI -->
+    <nav id="sideMenu">
+        <a href="kata_pengantar.html">Kata Pengantar</a>
+        <a href="petunjuk_penggunaan.html">Petunjuk Penggunaan</a>
+        <a href="#">Peta Konsep</a>
+        <a href="#">Tujuan Pembelajaran</a>
+        <a href="#">Materi Utama</a>
+        <a href="#">Aktivitas Blended Learning</a>
+        <a href="#">Evaluasi</a>
+        <a href="#">Referensi</a>
+    </nav>
 
-    <!-- MAIN CONTENT -->
-    <main id="main-content" role="main">
-        <section id="home">
-            <h2>Selamat Datang di E-Modul</h2>
-            <p>E-modul ini digunakan sebagai media pembelajaran pada mata pelajaran <strong>Pengendalian Hama Tanaman Hortikultura</strong> kelas XI ATPH.</p>
-            <p>Gunakan navigasi di samping (atau tekan tombol "Navigasi" di HP) untuk menjelajahi seluruh isi modul.</p>
-        </section>
+    <!-- KONTEN -->
+    <div class="content">
+        <h2>Prototype E-Modul (Responsif)</h2>
+        <p>Ini adalah prototype responsif untuk layar HP, tablet, dan laptop.</p>
 
-        <!-- Contoh konten placeholder -->
-        <section id="pendahuluan" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed #ccc;">
-            <h3>Pendahuluan</h3>
-            <p>Isi pendahuluan akan ditampilkan di sini...</p>
-        </section>
-
-        <section id="tujuan">
-            <h3>Tujuan Pembelajaran</h3>
-            <p>Setelah mempelajari modul ini, siswa diharapkan mampu...</p>
-        </section>
-    </main>
+        <div class="placeholder">
+            Konten lengkap akan ditampilkan di area ini.
+            <ul>
+                <li>Kata Pengantar</li>
+                <li>Materi & Gambar</li>
+                <li>Aktivitas & Kuis</li>
+                <li>Lembar Kerja & Refleksi</li>
+            </ul>
+        </div>
+    </div>
 
 </div>
 
-<footer role="contentinfo">
-    © 2025 • E-Modul Pengendalian Hama • SMKN 1 Muaro Jambi
+<footer>
+    © 2025 E-Modul Pengendalian Hama – ATPH
 </footer>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const menuButton = document.getElementById('menuButton');
-        const sidebar = document.getElementById('sidebar');
-
-        menuButton.addEventListener('click', function() {
-            sidebar.classList.toggle('show');
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-        });
-
-        // Tutup sidebar saat klik di luar (mobile only)
-        document.addEventListener('click', function(event) {
-            if (window.innerWidth <= 900 && 
-                !sidebar.contains(event.target) && 
-                event.target !== menuButton && 
-                sidebar.classList.contains('show')) {
-                sidebar.classList.remove('show');
-                menuButton.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        // Menutup sidebar saat link diklik (mobile)
-        const sidebarLinks = sidebar.querySelectorAll('a');
-        sidebarLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 900) {
-                    sidebar.classList.remove('show');
-                    menuButton.setAttribute('aria-expanded', 'false');
-                }
-            });
-        });
-    });
+    // FUNGSI UNTUK MOBILE MENU
+    function toggleMenu() {
+        document.getElementById("sideMenu").classList.toggle("active");
+    }
 </script>
 
 </body>

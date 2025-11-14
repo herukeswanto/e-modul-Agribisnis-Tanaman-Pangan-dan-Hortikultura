@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petunjuk Penggunaan – E-Modul Pengendalian Hama</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #e7f5e8;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #3fa55b, #2d7a41);
+            padding: 18px 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .home-icon {
+            font-size: 28px;
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .home-icon:hover { transform: scale(1.15); }
+
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* NAVIGASI BUTTON */
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            margin: 25px auto;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 0 15px;
+        }
+
+        .nav-btn {
+            background: #3fa55b;
+            color: white;
+            padding: 12px 22px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: #2d7a41;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 600px) {
+            .nav-btn {
+                width: 85%;
+                justify-content: center;
+            }
+        }
+
+        /* KONTEN */
+        .container {
+            max-width: 850px;
+            margin: 25px auto;
+            padding: 15px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+            border: 1px solid #d6e8d8;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #2d6040;
+            background: #d7f1d9;
+            padding: 10px 14px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p, li {
+            color: #2d4235;
+            line-height: 1.6;
+        }
+
+        ul, ol {
+            margin-top: 8px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 25px;
+            background: #2d7a41;
+            color: white;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 18px;
+            }
+            .home-icon {
+                font-size: 24px;
+            }
+            .card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <a href="index.html" class="home-icon">🏠</a>
+    <h1>Petunjuk Penggunaan E-Modul</h1>
+</header>
+
+<!-- TOMBOL NAVIGASI -->
+<div class="nav-buttons">
+    <a href="#guru" class="nav-btn">👩‍🏫 Untuk Guru</a>
+    <a href="#murid" class="nav-btn">🧑‍🎓 Untuk Murid</a>
+    <a href="#etika" class="nav-btn">⚠ Etika & Keselamatan</a>
+</div>
+
+<!-- KONTEN -->
+<div class="container">
+    <div class="card">
+
+        <p>
+            E-Modul <strong>“Pengendalian Hama Tanaman Hortikultura”</strong> ini dikembangkan 
+            untuk digunakan oleh guru dan peserta didik Program Keahlian Agribisnis 
+            Tanaman Pangan dan Hortikultura (ATPH) SMK Negeri 1 Muaro Jambi. 
+            Modul ini menerapkan model Blended Learning dengan pendekatan 
+            Pembelajaran Mendalam (Deep Learning), yang menggabungkan kegiatan 
+            tatap muka di sekolah dan pembelajaran mandiri di lingkungan sekitar.
+        </p>
+
+        <!-- BAGIAN GURU -->
+        <h2 id="guru">👩‍🏫 Petunjuk untuk Guru</h2>
+
+        <ol>
+            <li>Gunakan e-modul ini sebagai panduan utama pembelajaran materi 
+                “Pengendalian Hama Tanaman Hortikultura” pada kelas XI ATPH.</li>
+
+            <li>Laksanakan kegiatan tatap muka untuk:
+                <ol type="a">
+                    <li>Menjelaskan konsep dasar dan jenis-jenis hama tanaman.</li>
+                    <li>Mendorong siswa menganalisis contoh gejala serangan.</li>
+                    <li>Memfasilitasi diskusi dan refleksi hasil observasi lapangan.</li>
+                </ol>
+            </li>
+
+            <li>Bimbing peserta didik melakukan kegiatan mandiri/lapangan di lingkungan rumah 
+                atau kebun masyarakat dengan memanfaatkan bagian Aktivitas Blended Learning.</li>
+
+            <li>Gunakan grup daring sebagai sarana komunikasi, pengumpulan foto, dan laporan hasil pengamatan.</li>
+
+            <li>Lakukan penilaian berdasarkan tiga aspek utama: pengetahuan, keterampilan, dan sikap peduli lingkungan.</li>
+
+            <li>Kaitkan hasil pembelajaran dengan konsep Pengendalian Hama Terpadu (PHT) agar siswa memahami hubungan teori dan praktik nyata.</li>
+        </ol>
+
+        <!-- BAGIAN MURID -->
+        <h2 id="murid">🧑‍🎓 Petunjuk untuk Murid</h2>
+
+        <ol>
+            <li>Bacalah e-modul ini secara berurutan dari pendahuluan hingga evaluasi.</li>
+            <li>Gunakan perangkat digital (HP/tablet/laptop) untuk membuka video, kuis, atau lembar kerja online.</li>
+
+            <li>Saat kegiatan lapangan:
+                <ul>
+                    <li>Amati tanaman hortikultura di sekitar rumah atau kebun masyarakat.</li>
+                    <li>Catat jenis tanaman, gejala kerusakan, dan jenis hama yang ditemukan.</li>
+                    <li>Dokumentasikan dalam bentuk foto dan unggah ke grup kelas.</li>
+                </ul>
+            </li>
+
+            <li>Hindari penggunaan pestisida kimia. Utamakan cara alami dan ramah lingkungan.</li>
+            <li>Tuliskan hasil pengamatan dan refleksi di bagian Lembar Refleksi modul.</li>
+        </ol>
+
+        <!-- ETIKA & KESELAMATAN -->
+        <h2 id="etika">⚠ Etika dan Keselamatan Belajar</h2>
+
+        <ol>
+            <li>Gunakan alat praktik dengan hati-hati.</li>
+            <li>Jangan memegang hama beracun atau menyemprot bahan kimia tanpa bimbingan guru.</li>
+            <li>Jaga tanaman dan lingkungan agar tetap lestari.</li>
+            <li>Lakukan observasi dengan jujur dan bertanggung jawab.</li>
+            <li>Terapkan nilai Profil Pelajar Pancasila: mandiri, bernalar kritis, dan gotong royong.</li>
+        </ol>
+
+    </div>
+</div>
+
+<footer>
+    © 2025 E-Modul Pengendalian Hama — SMK ATPH
+</footer>
+
+</body>
+</html>
